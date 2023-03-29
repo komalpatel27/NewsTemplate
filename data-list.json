@@ -1,26 +1,48 @@
-[ 
-{ 
-    "Title": "live: How 7 Lines of Code Turned Into a $36 Billion Empire" ,
-    "Imageurl": "images/1.jpg", 
-    "Intro": "Rabbitohs star Greg",
-    "Published": 1
-},
-{ 
-    "Title": "live: To Become Happier, Ask Yourself These Two Questions Every Night" ,
-    "Imageurl": "images/12.jpg", 
-    "Intro": "Rabbitohs star Greg",
-    "Published": 2 
-},
-{ 
-    "Title": "live: Some totally newsworthy newsletter copy goes here." ,
-    "Imageurl": "images/3.jpg", 
-    "Published": 3 
-},
-{ 
-    "Title": "live: Some totally newsworthy newsletter copy goes here." ,
-    "Imageurl": "images/3.jpg", 
-    "Published": 4
-}
-]
-  
+fetch("https://raw.githubusercontent.com/komalpatel27/NewsTemplate/main/data-list.json")
+    // .then (response => response.json())
+    .then ((data) => {
+        // console.log(data)
+        return data.json();
+    }).then ((completedata)=>{
+        console.log(completedata[0].Title);
+        document.getElementById('title').
+        innerHTML=completedata[0].Title;
 
+        console.log(completedata[0].discription);
+        document.getElementById('discription1').
+        innerHTML=completedata[0].discription;
+
+        console.log(completedata[0].Imageurl);
+      let image=  document.getElementById('img1');
+        image.src=completedata[0].Imageurl;
+        
+       
+    //     let data1="";
+    //     completedata.map((values) =>{
+    //         data1=` <article class="article" >
+    //                 <figure class="article-img">
+    //                     <img src=${values.Imageurl} />
+    //                 </figure>
+    //                 <h2 class="article-title article-title--medium">
+    //                     <a href="#" class="article-link"><span style="color:#41c1ec;">&#x271C;</span> ${values.Title} </a>
+    //                 </h2>
+    //                 <div class="article-excerpt">
+    //                     <p>${values.discription}</p>
+    //                 </div>
+    //                 <div class="article-author">
+                        
+    //                     <div class="article-author-info">
+                            
+    //                             <span>&#9716; 2m</span>
+    //                             <span>&#x2709;</span>
+                            
+    //                     </div>
+    //                 </div>
+    //             </article>`
+    // });
+    // document.getElementById('article1').
+    //     innerHTML=data1;
+}).catch((err)=>{
+    console.log(err);
+})
+  
